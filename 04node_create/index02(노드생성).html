@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" class="todo" placeholder="할일을 작성해 보세요">
+    <button class="btn">추가</button>
+
+    <ul class="list">
+        <!-- 
+        <li>내용...</li>
+        <li>내용...</li>
+        <li>내용...</li>
+         -->
+    </ul>
+
+    <script>
+        var list = document.querySelector(".list");
+        var todo = document.querySelector(".todo");
+        var btn = document.querySelector(".btn");
+
+        btn.onclick = function () {
+            var li = document.createElement("li"); //li태그생성
+            var a = document.createElement("a"); //a태그생성
+            a.href = "#";
+
+            //a태그 안에 input에서 입력한 값을 넣는다.
+            a.innerHTML = todo.value;
+
+            todo.value = "";
+
+            //li의 자식으로 a태그를 넣는다.
+            li.appendChild(a);
+
+            //list의 자식으로 li태그를 넣는다/
+            list.appendChild(li);
+            console.log(list);
+        }
+    </script>
+
+    <hr>
+
+    <div id="addList">
+
+    </div>
+    <button id="add">추가</button>
+
+    <script>
+        //리스트 여러개 한번에 만들기
+        window.onload = function () {
+            var addList = document.getElementById("addList");
+            var ul = document.createElement("ul");
+            for (var i = 1; i <= 10; i++) {
+
+                var li = document.createElement("li");
+                li.innerHTML = "리스트" + i;
+
+                ul.appendChild(li);
+            }
+
+            addList.appendChild(ul);
+            console.log(addList);
+        }
+
+        //리스트 추가버튼 ->> 리스트 추가
+        var add = document.getElementById("add");
+        add.onclick = function () {
+
+            var li = document.createElement("li");
+            li.innerHTML = "추가된 리스트";
+
+            //새롭게 addList > ul태그를 얻는다.
+            var ul = document.querySelector("#addList > ul");
+            ul.appendChild(li);
+        }   
+
+            
+    </script>
+</body>
+
+</html>
