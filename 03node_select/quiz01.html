@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h3>사용자가 버튼을 클릭하면 input태그의 공백여부, 체크박스의 체크여부를 확인</h3>
+
+    ID : <input type="input" id="id" value="">
+    기억하기 : <input type="checkbox" class="remember">
+    <button id="btn">확인</button>
+
+
+    <script>
+        var btn = document.getElementById("btn");
+        var id = document.getElementById("id");
+        var reinput = document.querySelector(".remember");
+
+        btn.addEventListener("click", function () {
+            if (id.value == "") {
+                console.log('공백입니다');
+            } else {
+                console.log(id.value);
+            }
+
+            if (reinput.checked == true) {
+                console.log('체크완료');
+            } else {
+                console.log('체크하지 않았습니다.')
+            }
+        })
+
+
+
+    </script>
+
+    <hr>
+
+    <h3>인라인이벤트 = 사용자가 체크박스를 클릭할 때ㅁ마다 경고창에 value값 띄워주기</h3>
+
+    <input type="checkbox" value="1" onclick="msg()" id="mmm">조항1
+    <input type="checkbox" value="2" onclick="check(this)">조항2
+    <input type="checkbox" value="3" onclick="function msg(){alert(value+'번 조항')} msg()">조항3
+
+
+    <script>
+        var box = document.getElementById("mmm");
+
+        function msg() {
+            alert(box.value + '번 조항');
+        }
+
+        function check(a){
+            // checked true일 경우는 체크상태 /아닐경우는 false상태
+            console.log(a.checked);
+            if(a.checked == true){
+                
+                alert(a.value + '번 조항입니다.');
+            }
+        }
+    </script>
+
+    <hr>
+
+    <!-- 체크박스를 클릭했을 경우에만 알림창 -->
+    <input type="checkbox" value="1" onclick="if(checked!=false)alert(value + '번 조항에 동의하셨습니다.' )">조항1
+    <input type="checkbox" value="2" onclick="if(checked!=false)alert(value + '번 조항에 동의하셨습니다.' )">조항2
+    <input type="checkbox" value="3" onclick="if(checked!=false)alert(value + '번 조항에 동의하셨습니다.' )">조항3
+</body>
+
+</html>

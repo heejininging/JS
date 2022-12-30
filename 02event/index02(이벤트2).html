@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<!-- 취득할 태그보다 이벤트가 아래쪽에 있어야한다. 아닐 시 에러발생 -->
+
+    <!-- id는 고유해져야한다. 식별하기 위한 값으로 사용한다. -->
+    <button id="btn">기본이벤트</button>
+
+    <script>
+        var a = document.getElementById("btn");
+        console.log(a); //태그를 그대로 가져와서 변수에 저장됨
+
+        // a가 가지고있는 onclick속성에 대입하겠다.
+        // 클릭시에 함수 작동
+        a.onclick = function(){
+            console.log('기본이벤트');
+        }
+    </script>
+</body>
+</html>

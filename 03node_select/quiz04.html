@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>JS카운트 만들기</h3>
+
+    <input type="number" value="0">
+    <button onclick="calc(this)" id="plus">증가</button>
+    <button onclick="calc(this)" id="minus">감소</button>
+
+    <script>
+        var number = document.querySelector("input");
+
+       function calc(button){
+
+            if(button.innerHTML == '증가'){
+                number.value++;
+            }else if(button.innerHTML == '감소'){
+                number.value--;
+                if(number.value <= 0){
+                    alert("0보다 작은수는 안됩니다.")
+                    number.value = 0;
+                }
+            }
+        }
+
+       
+
+
+    </script>
+</body>
+</html>

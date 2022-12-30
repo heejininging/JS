@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">표준이벤트</button>
+
+
+    <script>
+        var btn = document.getElementById("btn");
+        // 이벤트 앞에 on을 붙이지않고 이름만 넣는다., 함수도 뒤에 ()를 붙이면 반환을 받는다는 의미이므로 제거하고 넣어준다.
+        btn.addEventListener("click", function(){
+            console.log('표준이벤트');
+        });
+        
+        btn.addEventListener("click", function(){
+            console.log('표준이벤트2');
+        });
+    
+        // function aaa(){
+        //     console.log('표준이벤트');
+        // }
+   
+    </script>
+
+</body>
+</html>

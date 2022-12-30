@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        input:focus {
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <h3>focus - input에 focus가 들어갈 때 동작, blur - focus가 떠났을 때 동작</h3>
+    아이디 : <input type="text" class="id">
+    <div class="idtext"></div>
+    비밀번호 : <input type="password" class="pw">
+    <div class="pwtext"></div>
+
+    <script>
+        var id = document.querySelector(".id");
+        var pw = document.querySelector(".pw");
+
+        var idtext = document.querySelector(".idtext");
+        var pwtext = document.querySelector(".pwtext");
+
+
+        id.onblur = function(){
+            if(id.value.length <= 4){
+                id.style.border = "3px solid red"
+                idtext.innerHTML = "아이디는 4글자 이상입니다."
+            }else {
+                id.style.border = "3px solid green"
+                idtext.innerHTML = "";
+            }
+        }
+
+        pw.onblur = function(){
+            if(pw.value.length <= 9){
+                pw.style.border = "3px solid red"
+                pwtext.innerHTML = "비밀번호는 9글자 이상입니다."
+            }else{
+                pw.style.border = "3px solid green"
+                pwtext.innerHTML = "";
+            }
+        }
+
+    </script>
+
+</body>
+</html>

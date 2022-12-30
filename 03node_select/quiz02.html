@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- select에서 value속성은 선택된 값을 의미합니다.
+    change 이벤트 -->
+
+    <h3 id="text">단어장</h3>
+
+    <select id="lang">
+        <option value="sel">선택</option>
+        <option value="한국어">안녕하세요</option>
+        <option value="영어">hello</option>
+        <option value="중국어">晚安</option>
+    </select>
+
+    <script>
+        var text = document.getElementById("text");
+        var lang = document.getElementById("lang");
+
+        // var lang = document.querySelector('.lang');
+        // var text = document.querySelector("#text");
+
+        lang.onchange = function test(){
+            if(lang.value == 'sel'){
+                text.innerHTML = '단어를 선택하세요.';
+            }else if(lang.value == '한국어'){
+                text.innerHTML = '한국어 입니다.';
+            }else if(lang.value == '영어'){
+                text.innerHTML = '영어 입니다.';
+            }else if(lang.value == '중국어'){
+                text.innerHTML = '중국어 입니다.';
+            }
+        }
+
+    </script>
+</body>
+</html>
