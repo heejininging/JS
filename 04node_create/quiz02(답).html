@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+
+    </style>
+</head>
+<body>
+
+    <h3>input은 지우는게 아니라 display 를 제어하세요</h3>
+    <h3>할일 목록 만들기</h3>
+    <button type="button" onclick="delAll()">전체삭제하기</button>
+    
+    <h3 class="na2"></h3>
+    <input type="text" placeholder="당신의 이름을 적으세요" class="na1" style="display:;"> <button class="btn1">확인</button><br>
+    <input type="text" placeholder="당신의 할일을 적으세요" class="todo1"> <button class="btn2">확인</button>
+
+    <ul class="toDoList">
+    </ul>
+
+    
+
+    <script>
+        var na1 = document.querySelector(".na1");
+        var btn1 = document.querySelector(".btn1");
+        var na2 = document.querySelector(".na2");
+        btn1.onclick = function(){
+            na2.innerHTML = na1.value +"님 안녕하세요";
+            na1.style.display="none";
+            btn1.style.display="none";
+        }
+
+        var todo1 = document.querySelector(".todo1");
+        var btn2 = document.querySelector(".btn2");
+        var toDoList = document.querySelector(".toDoList");
+        btn2.onclick = function(){
+            var todoV = todo1.value;
+            var li = document.createElement("li");
+            li.innerHTML = todoV ;          //입력값을 li에 넣음
+            todo1.value="";         //입력값 초기화
+
+            // li.innerHTML = todoV + '<button type="button" ondblclick = "del(this)">X</button>';
+            var btn = document.createElement("button");     //삭제 버튼 생성
+            btn.innerHTML = "x";
+            btn.ondblclick = del;
+            li.appendChild(btn)
+
+            var downb = document.createElement("button");
+            downb.innerHTML = "아래 이동";
+            downb.onclick = down;
+            li.appendChild(downb);
+            
+            var upb = document.createElement("button");
+            upb.innerHTML = "위로 이동";
+            upb.onclick = up;
+            li.appendChild(upb);
+            
+            toDoList.appendChild(li);
+        }
+
+        function del(){
+            this.parentElement.remove();        
+        }
+        
+        function up(){
+            if(this.parentElement.previousElementSibling==null){
+                alert("첫번째글");
+                return;
+            }
+            toDoList.insertBefore(this.parentElement,this.parentElement.previousElementSibling);
+        }
+        
+        function down(){
+            if(this.parentElement.nextElementSibling==null){
+                alert("마지막글");
+                return;
+            }
+            toDoList.insertBefore(this.parentElement.nextElementSibling,this.parentElement);
+        }
+        function delAll(){
+            while(toDoList.childElementCount>0){
+                toDoList.firstChild.remove();
+            }
+        }
+
+
+
+
+
+    </script>
+
+
+    
+</body>
+</html>

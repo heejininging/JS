@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+
+    <h3>할일 목록 만들기</h3>
+
+    <div>
+        <button onclick="delAll()">전체삭제하기</button>
+    </div>
+
+    <h4 id="h4"></h4>
+    <div id="divName">
+        이름 : <input type="text" class="nameInput" placeholder="이름을 적으세요.">
+        <button id="btn1">확인</button>
+
+    </div>
+    <div>
+        할 일 : <input type="text" id="work" placeholder="당신의 할일을 적으세요.">
+        <button type="button" id="btn2">등록</button>
+
+    </div>
+
+    <ul class="list">
+
+    </ul>
+
+
+
+    <script>
+        var nameInput = document.querySelector(".nameInput");
+        var btn1 = document.getElementById("btn1");
+
+
+        btn1.onclick = function () {
+
+            document.getElementById("h4").innerHTML = nameInput.value + '님 안녕하세요.';
+            document.getElementById("divName").style.visibility = "hidden";
+
+        }
+
+
+        var work = document.querySelector("#work");
+        var btn2 = document.getElementById("btn2");
+        var list = document.querySelector(".list");
+
+        btn2.onclick = function () {
+            var li = document.createElement("li");
+            li.innerHTML = work.value;
+            work.value = "";
+            // li.innerHTML = work.value + '<button onclick="del(this)">x</button>';
+            
+            
+            var btn = document.createElement("button");
+            btn.innerHTML = "삭제(더블클릭)";
+            btn.ondblclick = del;
+            li.appendChild(btn);
+
+            var upbtn = document.createElement("button");
+            upbtn.innerHTML = "위로이동";
+            upbtn.onclick = upList;
+            li.appendChild(upbtn);
+
+            var downbtn = document.createElement("button");
+            downbtn.innerHTML = "아래로이동";
+            downbtn.onclick = downList;
+            li.appendChild(downbtn);
+
+
+            list.appendChild(li);
+        }
+
+        function del() {
+            this.parentElement.remove();
+        }
+
+        function upList() {
+            var current = this.parentElement;
+            var next = current.previousElementSibling;
+
+            if(confirm("이동하시겠습니까?")){
+                list.insertBefore(current, next);
+            }
+
+
+            // if(this.parentElement.previousElementSibling == null){
+            //     alert('첫번째 할 일 입니다.');
+            //     return;
+            // }
+            // list.insertBefore(this.parentElement,this.parentElement.previousElementSibling);
+        }
+
+        function downList() {
+            var current = this.parentElement;
+            var next = current.nextElementSibling;
+
+            if(confirm("이동하시겠습니까?")){
+                list.insertBefore(next, current);
+            }
+            
+            
+            // if(this.parentElement.nextElementSibling == null){
+            //     alert('마지막 할 일 입니다.');
+            //     return;
+            // }
+            // list.insertBefore(this.parentElement.nextElementSibling, this.parentElement);
+        }
+
+
+        //전체삭제 버튼
+        function delAll(){
+            var list = document.querySelector(".list");
+
+            while(list.firstElementChild != null){
+                list.removeChild(list.firstElementChild);
+            }
+        }
+
+    </script>
+</body>
+
+</html>
