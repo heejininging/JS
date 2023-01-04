@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+    </style>
+</head>
+<body>
+
+    <h3>여러 이벤트를 한번에 걸어주기</h3>
+    
+    <ul>
+        <li class="item">1.홍길동</li>
+        <li class="item">2.홍길자</li>
+        <li class="item">3.이순신</li>
+        <li class="item">4.강감찬</li>
+        <li class="item">5.안중근</li>
+    </ul>
+
+    선택한 태그의 값 :
+    <p class="result"></p>
+
+    <script>
+        var result = document.querySelector(".result");
+
+        var allItem = document.querySelectorAll(".item");
+        // 반복문을 사용하면 효율이 떨어짐 - 태그의 수가 많다면 반복문이 그만큼 많이 회전됨
+        // 좋은 코드는 아니다.
+        for(var i = 0; i < allItem.length; i++){
+            allItem[i].onclick = function(){
+                result.innerHTML = this.innerHTML;
+            }
+        }
+    </script>
+</body>
+</html>
