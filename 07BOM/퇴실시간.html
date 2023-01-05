@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+         var time = document.querySelector(".time");
+        function cur() {
+            var date = new Date();              //현재시간
+            var year = date.getFullYear();      //년
+            var month = date.getMonth() + 1;    //월 0부터시작이라 +1
+            var day = date.getDate();           //일
+            var hour = date.getHours();         //시간
+            var minutes = date.getMinutes();    //분
+            var second = date.getSeconds();     //초
+            
+            var over = 60;
+            if((18-parseInt(hour))==0){
+                over=50;
+            }
+            document.writeln(year + "년 " + month + "월 " + day + "일 퇴실까지<br>" 
+                                + (18-parseInt(hour)) + "시간 " + (over-parseInt(minutes)) + "분 " + (60-parseInt(second)) + "초");
+            document.close();
+            
+        }
+        setInterval(cur, 1000);
+    </script>
+</body>
+</html>

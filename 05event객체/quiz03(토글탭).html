@@ -22,6 +22,21 @@
 
         .active {
             display: block;
+            animation: fadeIn 1s ease-in-out;
+            background-color: thistle;
+        }
+
+        /*애니메이션*/
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                background-color: tomato;
+                margin-left: -100px;
+            } to {
+                opacity: 1;
+                background-color: thistle;
+                margin-left: 0px;
+            }
         }
     </style>
 
@@ -69,12 +84,12 @@
                 }
             }
 
-            var data = event.target.dataset.id;
+            var data = event.target.dataset.id; //#toggle1,2,3
             console.log(data);
 
-            var data2 = document.querySelector(event.target.dataset.id);
+            var data2 = document.querySelector(event.target.dataset.id);//아이디를 가지고있는 태그를 찾아옴
             console.log(data2);
-            data2.classList.add("active");
+            data2.classList.add("active");//태그에 엑티브 추가
 
         }
 

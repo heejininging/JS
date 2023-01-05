@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{margin: 0; padding: 0;}
+        
+        /* 첫번째 방법 css */
+        /* .bgImg{
+            animation: fadeIn 0.5s ease-in-out;
+        } */
+
+        /* 두번째 방법 css */
+        .slideImg {display: none;}
+        .slideImg.active {
+            display: inline;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }to{    
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="slide">
+        <img src="img/slide1.jpg" class="slideImg active">
+        <img src="img/slide2.jpg" class="slideImg">
+        <img src="img/slide3.jpg" class="slideImg">
+        <img src="img/slide4.jpg" class="slideImg">
+    </div>
+    
+    <script>
+ 
+        //첫번째 방법,
+        
+        // html구간
+        // <h3>애니메이션이 주기적으로 동작하려면 태그가 변경되어야한다.</h3>
+    
+        // <div class="slide">
+        //     <img src="img/slide1.jpg" class="bgImg">
+        // </div>
+        // var num = 1;
+        // var arr = ['img/slide1.jpg','img/slide2.jpg','img/slide3.jpg','img/slide4.jpg'];
+
+
+        setInterval(function(){
+            
+            var img = document.createElement("img");
+            img.src = arr[num++];
+            //애니메이션 클래스 주기
+            img.classList.add("bgImg");
+            
+            //이미지 태그를 지우기 remove
+            var slide = document.querySelector(".slide");
+            slide.firstElementChild.remove();
+            
+            //앞의 이미지태그 지우고 그 다음 이미지태그 추가하기
+            slide.appendChild(img);
+
+            // num++;
+            if(num == arr.length){
+                num = 0;
+            }
+
+        },2000);
+
+
+
+        //두번째 방법,
+        var arr = document.querySelectorAll(".slide > .slideImg"); //배열로 받기
+        var i = 0;
+        setInterval(function() {
+            
+            //console.log(i);
+            arr[i].classList.remove("active");
+            i++;
+            if(i == arr.length) i = 0;
+            arr[i].classList.add("active");
+
+
+        }, 1000);
+
+       
+
+    </script>
+</body>
+</html>

@@ -27,7 +27,7 @@
     <script>
         var result = document.querySelector(".result");
 
-        var allItem = document.querySelectorAll(".item");
+        var allItem = document.querySelectorAll(".item");//배열로 가져오기
         // 반복문을 사용하면 효율이 떨어짐 - 태그의 수가 많다면 반복문이 그만큼 많이 회전됨
         // 좋은 코드는 아니다.
         for(var i = 0; i < allItem.length; i++){

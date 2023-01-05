@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .button{
+            background-color: yellowgreen;
+            border: 1px solid grey;
+            border-radius: 90px;
+        }
+    </style>
+</head>
+<body>
+    <h3>네이버타이머 도전하기</h3>
+
+    1. select태그는 시간:99 or 분:60 or 초:60으로 화면이 생성될 때 엘리먼트 생성기법으로 처리합니다.<br>
+    2. 시간설정 버튼을 클릭하면 시간이 세팅됩니다.<br>
+    3. 타이머시작버튼은 토글형태로 타이머가 동작중이라면 일시정지 버튼으로 활성화 됩니다<br>
+    4. 사용자가 버튼을 잘못클릭하는 경우를 고려하여, 어떠한 경우라도 중복으로 타이밍이 발생되면 안됩니다.<hr>
+
+
+    <select name="hour" id="hour"></select>
+    <select name="min" id="min"></select>
+    <select name="sec" id="sec"></select>
+
+    <button class="button1">시간설정</button>
+    <div class="TimeWatch">
+        
+    </div>
+</body>
+
+    <script>
+        var hour = document.getElementById("hour");
+        for(var i = 0; i <= 99; i++){
+            var opt = document.createElement("option");
+            opt.value = i;
+            opt.innerHTML = i;
+            hour.appendChild(opt);
+        }
+
+        var min = document.getElementById("min");
+        var sec = document.getElementById("sec");
+        for(var i = 0; i <= 60; i++){
+            var opt = document.createElement("option");
+            var opt1 = document.createElement("option");
+            opt.value = i;
+            opt.innerHTML = i;
+            opt1.value = i;
+            opt1.innerHTML = i;
+            min.appendChild(opt);
+            sec.appendChild(opt1);
+        }
+
+        var button1 = document.querySelector(".button1");
+        button1.onclick = function(){
+            
+        }
+        
+    </script>
+</html>
