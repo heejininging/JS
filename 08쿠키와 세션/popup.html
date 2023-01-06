@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    팝업창
+    <input type="checkbox" id="close">24시간동안 이 창을 열지않기
+
+    <script>
+        var closepop = document.getElementById("close");
+
+        closepop.onclick = function(){
+            if(closepop.checked == true){
+                var date = new Date();
+                date.setDate( date.getDate() +1 );
+                date.setHours(0);
+                date.setMinutes(0);
+                date.setSeconds(0);
+
+                document.cookie = "팝업창=값; path=/; expires="+date.toUTCString();
+                window.close();
+            }else {
+                console.log('팝업을 닫지 않음');
+            }
+        }
+    </script>
+
+</body>
+</html>

@@ -27,9 +27,11 @@
     <select name="sec" id="sec"></select>
 
     <button class="button1">시간설정</button>
-    <div class="TimeWatch">
-        
+    <div>
+        <h1 class="TimeWatch"></h1>
     </div>
+
+    <button class="timer toggle1">타이머시작</button>
 </body>
 
     <script>
@@ -55,7 +57,22 @@
         }
 
         var button1 = document.querySelector(".button1");
+        var TimeWatch = document.querySelector(".TimeWatch");
         button1.onclick = function(){
+            TimeWatch.innerHTML = hour.value +":"+ min.value +":"+ sec.value;
+           
+        }
+
+        var timer = document.querySelector(".timer");
+        timer.onclick = function(){
+            if(timer.classList.contains("toggle1")){
+                timer.classList.remove("toggle1");
+                console.log('토글삭제');
+            }else{
+                timer.classList.add("toggle1");
+                timer.innerHTML = "일시정지";
+                console.log('토글추가');
+            }
             
         }
         
