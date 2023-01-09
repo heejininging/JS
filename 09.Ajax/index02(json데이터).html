@@ -20,9 +20,9 @@
                 return res.json(); //json형변환 
             })
             .then(function(data){
-                // console.log(data);
-                // console.log(data.id);
-                // console.log(data["id"]);
+                console.log(data);
+                console.log(data.id);
+                console.log(data["id"]);
                 //화면의 이동 없이 데이터만 가져와서 넣는다.
                 var result = document.querySelector(".result");
                 result.innerHTML = data["id"];
@@ -45,7 +45,7 @@
             // console.log(result);
 
             var arr = result.querySelectorAll("datas > data");
-            console.log(arr);
+            // console.log(arr);
             for(var i = 0; i < arr.length; i++){
                 console.log(arr[i].querySelector("name").innerHTML);
                 console.log(arr[i].querySelector("version").innerHTML);
